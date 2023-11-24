@@ -1,2 +1,4 @@
 data.json
 /static/icons/*.png
+whitelist.txt
+__pycache__

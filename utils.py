@@ -11,9 +11,13 @@ def write_json(data):
 def check_ip(request):
     """Check if the request is coming from a whitelisted IP."""
 
-    if request.remote_addr == "192.168.0.69":
-        return True
-    elif request.remote_addr == "127.0.0.1":
+    with open('whitelist.txt', 'r', encoding='UTF-8') as f:
+        whitelist = f.read().splitlines()
+
+    for ip in whitelist:
+        if request.remote_addr == ip:
+            return True
+    if request.remote_addr == "127.0.0.1":
         return True
     else:
         return False

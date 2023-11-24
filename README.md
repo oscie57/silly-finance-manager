@@ -1,3 +1,3 @@
 # silly-finance-manager
 
- Silly Finance Manager
+Silly Finance Manager
