@@ -23,15 +23,45 @@ def manager():
     if data['subscriptions']:
         subscriptions_total = 0.0
         for subscription in data['subscriptions']:
-            if data['subscriptions'][subscription]['currency'] != "£":
+            if data['subscriptions'][subscription]['currency'] == "$":
+                subscriptions_total += float(data['subscriptions'][subscription]['value']) * 0.80
+                announcements.append("subscription_currency_converted")
+            elif data['subscriptions'][subscription]['currency'] == "CA$":
+                subscriptions_total += float(data['subscriptions'][subscription]['value']) * 0.60
+                announcements.append("subscription_currency_converted")
+            elif data['subscriptions'][subscription]['currency'] == "¥":
+                subscriptions_total += float(data['subscriptions'][subscription]['value']) * 0.055
+                announcements.append("subscription_currency_converted")
+            elif data['subscriptions'][subscription]['currency'] == "€":
+                subscriptions_total += float(data['subscriptions'][subscription]['value']) * 0.90
+                announcements.append("subscription_currency_converted")
+            elif data['subscriptions'][subscription]['currency'] != "£":
+                subscriptions_total += float(data['subscriptions'][subscription]['value'])
                 announcements.append("subscription_currency_not_pound")
-            subscriptions_total += float(data['subscriptions'][subscription]['value'])
+            else:
+                subscriptions_total += float(data['subscriptions'][subscription]['value'])
+
     if data['income']:
         income_total = 0.0
         for income in data['income']:
-            if data['income'][income]['currency'] != "£":
+            if data['income'][income]['currency'] == "$":
+                income_total += float(data['income'][income]['value']) * 0.80
+                announcements.append("income_currency_converted")
+            elif data['income'][income]['currency'] == "CA$":
+                income_total += float(data['income'][income]['value']) * 0.60
+                announcements.append("income_currency_converted")
+            elif data['income'][income]['currency'] == "¥":
+                income_total += float(data['income'][income]['value']) * 0.055
+                announcements.append("income_currency_converted")
+            elif data['income'][income]['currency'] == "€":
+                income_total += float(data['income'][income]['value']) * 0.90
+                announcements.append("income_currency_converted")
+            elif data['income'][income]['currency'] != "£":
+                income_total += float(data['income'][income]['value'])
                 announcements.append("income_currency_not_pound")
-            income_total += float(data['income'][income]['value'])
+            else:
+                income_total += float(data['income'][income]['value'])
+
     if data['subscriptions'] and data['income']:
         savings_min = float(data['savings']['min'])
         savings_max = float(data['savings']['max'])

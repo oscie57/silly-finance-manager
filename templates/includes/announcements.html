@@ -46,6 +46,11 @@
 
 
 
+    {% if "income_currency_converted" in announcements %}
+        <div class="notification is-warning">
+            Your income currency is not set to GBP! Values have been roughly converted to GBP in the totals and savings calulator, however this may not be accurate. Income listed will still be in its original currency.
+        </div>
+    {% endif %}
 
     {% if "income_currency_not_pound" in announcements %}
         <div class="notification is-warning">
@@ -55,12 +60,15 @@
         </div>
     {% endif %}
 
-    {% if "subscription_currency_not_pound" in announcements %}
+    {% if "subscription_currency_converted" in announcements %}
         <div class="notification is-warning">
-            One of the subscriptions' currency is not set to GBP! This may cause issues with the totals and savings calculator.
-            <br><br>
-            TODO: Convert USD to GBP for totals and savings calculator
+            One of the subscriptions' currency is not set to GBP! Values have been roughly converted to GBP in the totals and savings calulator, however this may not be accurate. Subscriptions listed will still be in their original currency.
         </div>
     {% endif %}
 
+    {% if "subscription_currency_not_pound" in announcements %}
+        <div class="notification is-warning">
+            One of the subscriptions' currency is not set to GBP and was unable to be converted! This may cause issues with the totals and savings calculator.
+        </div>
+    {% endif %}
 {% endif %}
