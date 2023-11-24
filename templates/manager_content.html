@@ -1,0 +1,79 @@
+<h2>Income <a href="/add/1"><button class="button add">+</button></a></h2>
+
+{% if not income %}
+    <p>You have no income set! Press the <code>+</code> button to add some.</p>
+{% else %}
+    <p>
+        Total: <span class="value">£{{ values['income'] }}pm</span>
+    </p>
+
+    <div class="section">
+        {% for item in income %}
+            {% with id=item, item_name=income[item]['name'], symbol=income[item]['currency'], value=income[item]['value'] %}
+                {% include 'includes/template_item2.html' %}
+            {% endwith %}
+        {% endfor %}
+    </div>
+{% endif %}
+
+<br>
+
+<h2>Subscriptions <a href="/add/2"><button class="button add">+</button></a></h2>
+
+{% if not subscriptions %}
+    <p>You have no subscriptions set! Press the <code>+</code> button to add some.</p>
+{% else %}
+    <p>
+        Total: <span class="value">£{{ values['subscriptions'] }}pm</span> (<span class="value">£{{ values['subscriptions_free'] }}pm</span> free)
+    </p>
+
+    <div class="section">
+        {% for item in subscriptions %}
+            {% with id=item, item_name=subscriptions[item]['name'], symbol=subscriptions[item]['currency'], value=subscriptions[item]['value'] %}
+                {% include 'includes/template_item.html' %}
+            {% endwith %}
+        {% endfor %}
+    </div>
+{% endif %}
+
+<br>
+
+<h2>Savings <a href="/set/3"><button class="button set">#</button></a></h2>
+
+{% if not savings %}
+    <p>You haven't set your savings goal! Press the <code>#</code> button to set it.</p>
+{% elif not subscriptions %}
+    <p>You have no subscriptions! In order to calculate proper savings, your subscriptions must be set.</p>
+{% elif not income %}
+    <p>You have no income set! In order to calculate proper savings, your income must be set.</p>
+{% else %}
+    <div class="section">
+        <div class="item">
+            <div class="text">
+                <p class="item-name">{{ savings['title'] }}</p>
+                <p class="value">£{{ values['savings'] }}pm</p>
+                <p>Maximum: <span class="value">£{{ savings['max'] }}pm</span><br>Mimimum: <span class="value">£{{ savings['min'] }}pm</span></p>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+<br>
+
+<h2>Expenditure <a href="/set/4"><button class="button set">#</button></a></h2>
+
+{% if not savings %}
+    <p>You haven't set your expenditure! Press the <code>#</code> button to set it.</p>
+{% else %}
+    <div class="section">
+        <div class="item">
+            <div class="text">
+                <p class="item-name">{{ expenditure['title'] }}</p>
+                <p>Total <span class="value">£{{ values['expenditure'] }}</span></p>
+                {% for step in expenditure['steps'] %}
+                    <p>・{{ expenditure['steps'][step]['name'] }} <span class="value">{{ expenditure['steps'][step]['currency'] }}{{ expenditure['steps'][step]['value'] }}</span></p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endif %}

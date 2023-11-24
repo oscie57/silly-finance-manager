@@ -1,0 +1,66 @@
+{% if announcements != None %}
+    {% if "category_created" in announcements %}
+        <div class="notification is-success">
+            Category has been created!
+        </div>
+    {% endif %}
+
+    {% if "category_deleted" in announcements %}
+        <div class="notification is-success">
+            Category has been deleted!
+        </div>
+    {% endif %}
+
+    {% if "category_exists" in announcements %}
+        <div class="notification is-warning">
+            Category already exists!
+        </div>
+    {% endif %}
+
+    {% if "category_doesnt_exist" in announcements %}
+        <div class="notification is-warning">
+            Category doesn't exist!
+        </div>
+    {% endif %}
+
+    {% if "category_not_empty" in announcements %}
+        <div class="notification is-warning">
+            Category is not empty! Delete the contents first before attempting to delete the category.
+        </div>
+    {% endif %}
+
+    {% if "video_exists" in announcements %}
+        <div class="notification is-warning">
+            Video already exists!
+        </div>
+    {% endif %}
+
+    {% if "example" in announcements %}
+        <div class="notification is-warning">
+            This is an example announcement!
+        </div>
+        <div class="notification is-success">
+            This is an example announcement!
+        </div>
+    {% endif %}
+
+
+
+
+    {% if "income_currency_not_pound" in announcements %}
+        <div class="notification is-warning">
+            Your income currency is not set to GBP! This may cause issues with the totals and savings calculator.
+            <br><br>
+            TODO: Convert USD to GBP for totals and savings calculator
+        </div>
+    {% endif %}
+
+    {% if "subscription_currency_not_pound" in announcements %}
+        <div class="notification is-warning">
+            One of the subscriptions' currency is not set to GBP! This may cause issues with the totals and savings calculator.
+            <br><br>
+            TODO: Convert USD to GBP for totals and savings calculator
+        </div>
+    {% endif %}
+
+{% endif %}

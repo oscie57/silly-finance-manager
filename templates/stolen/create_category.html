@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <head>
+            <title>Welcome to VideoPanel</title>
+            <link rel="stylesheet" href="/css/style.css">
+    
+            <meta property="og:title" content="Welcome to VideoPanel" />
+            <meta property="og:description" content="lots of access, files full">
+            <meta property="og:image" content="https://cloud.oscie.net/assets/square.png">
+        </head>
+    </head>
+
+    <body>
+        <section class="hero is-fullheight">
+
+            <div id="main-wrapper" class="hero-body">
+
+                {% include 'sidebar.html' %}
+
+                <div id="main" class="container is-widescreen has-left-left">
+                    <div class="has-text-white">
+
+                        <h1 class="title has-text-white">
+                            Create category
+                        </h1>
+
+                        <br/>
+                        
+                        <form method="post">
+                            <h2 class="subtitle"><label for="name">Category Name</label></h2>
+                            <input class="input" type="text" name="name"
+                                   placeholder="Name"
+                                   value="{{ request.form['name'] }}"></input>
+                            <br><br>
+                            <button class="button is-success" type="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+    </body>
+</html>

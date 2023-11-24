@@ -1,0 +1,16 @@
+/* Notifications */
+.notification {
+    color: white;
+    font-size: 20px;
+
+    border-radius: 20px;
+
+    padding: 30px;
+}
+
+.notification.is-warning {
+    background-color: #dbac5b;
+}
+.notification.is-success {
+    background-color: #50ac75;
+}
