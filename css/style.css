@@ -126,3 +126,41 @@ a {
     background-color: rgb(150, 144, 238);
     color: rgb(73, 73, 255);
 }
+/* Mobile css */
+@media screen and (max-width: 1000px) {
+    body {
+        padding-top: 1%;
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-bottom: 1%
+    }
+
+    h1 {
+        font-size: 80px;
+    }
+    h2 {
+        font-size: 75px;
+    }
+    h3 {
+        font-size: 70px;
+    }
+    p {
+        font-size: 50px;
+    }
+    a {
+        font-size: 50px;
+    }
+
+    .section .item {
+        width: 100%;
+    }
+
+    .section .icon img {
+        width: 220px;
+        height: 220px;
+    }
+
+    .section .text .item-name {
+        font-size: 60px;
+    }
+}

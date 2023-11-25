@@ -6,6 +6,7 @@
     border-radius: 20px;
 
     padding: 30px;
+    line-height: 1.1;
 }
 
 .notification.is-warning {
@@ -13,4 +14,13 @@
 }
 .notification.is-success {
     background-color: #50ac75;
+}
+
+@media screen and (max-width: 1000px) {
+    .notification {
+        font-size: 40px;
+        padding: 30px;
+        
+        line-height: 1.2;
+    }
 }
