@@ -4,8 +4,9 @@
     <p>You have no income set! Press the <code>+</code> button to add some.</p>
 {% else %}
     <p>
-        Total: <span class="value">£{{ values['income'] }}pm</span>
+        Total: <span class="value">£{{ values['income'] }}p/m</span>
     </p>
+    <p>Available after savings: <span class="value">£{{ values['available'] }}p/m</span></p>
 
     <div class="section">
         {% for item in income %}
@@ -24,7 +25,7 @@
     <p>You have no subscriptions set! Press the <code>+</code> button to add some.</p>
 {% else %}
     <p>
-        Total: <span class="value">£{{ values['subscriptions'] }}pm</span> (<span class="value">£{{ values['subscriptions_free'] }}pm</span> free)
+        Total: <span class="value">£{{ values['subscriptions'] }}p/m</span> (<span class="value">£{{ values['subscriptions_free'] }}p/m</span> free)
     </p>
 
     <div class="section">
@@ -51,8 +52,8 @@
         <div class="item">
             <div class="text">
                 <p class="item-name">{{ savings['title'] }}</p>
-                <p class="value">£{{ values['savings'] }}pm</p>
-                <p>Maximum: <span class="value">£{{ savings['max'] }}pm</span><br>Mimimum: <span class="value">£{{ savings['min'] }}pm</span></p>
+                <p class="value">£{{ values['savings'] }}p/m</p>
+                <p>Maximum: <span class="value">£{{ savings['max'] }}p/m</span><br>Mimimum: <span class="value">£{{ savings['min'] }}p/m</span></p>
             </div>
         </div>
     </div>

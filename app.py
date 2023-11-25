@@ -70,7 +70,8 @@ def manager():
             'subscriptions': format(subscriptions_total, '.2f'),
             'subscriptions_free': format(savings_min - subscriptions_total, '.2f'),
             'income': format(income_total, '.2f'),
-            'savings': format(savings_max - subscriptions_total, '.2f')
+            'savings': format(savings_max - subscriptions_total, '.2f'),
+            'available': format(income_total - savings_max, '.2f')
         }
     else:
         values = {}
