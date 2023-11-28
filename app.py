@@ -70,9 +70,15 @@ def manager():
             'subscriptions': format(subscriptions_total, '.2f'),
             'subscriptions_free': format(savings_min - subscriptions_total, '.2f'),
             'income': format(income_total, '.2f'),
-            'savings': format(savings_max - subscriptions_total, '.2f'),
-            'available': format(income_total - savings_max, '.2f')
         }
+        if data['savings']['standalone'] == True:
+            values['savings'] = format(savings_min, '.2f')
+            values['available'] = format(income_total - savings_min - subscriptions_total, '.2f')
+            values['subscriptions_free'] = format(income_total - savings_min - subscriptions_total, '.2f')
+        else:
+            values['savings'] = format(savings_max - subscriptions_total, '.2f')
+            values['available'] = format(income_total - savings_max, '.2f')
+            values['subscriptions_free'] = format(savings_min - subscriptions_total, '.2f')
     else:
         values = {}
 
@@ -97,4 +103,4 @@ def css(file):
     return send_file(f"./css/{file}.css")
 
 if __name__ == '__main__':
-    app.run('127.0.0.1', 80, debug=True)
+    app.run('192.168.0.69', 80, debug=True)

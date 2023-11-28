@@ -9,5 +9,10 @@
     },
 
     "savings": {
+        "title": "Savings Title",
+        "min": "50.00",
+        "max": "100.00",
+        "currency": "£",
+        "standalone": true
     }
 }
